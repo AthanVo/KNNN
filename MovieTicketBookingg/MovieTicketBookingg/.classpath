@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/vlcj-3.0.1-dist/vlcj-3.0.1/vlcj-3.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/vlcj-3.0.1-dist/vlcj-3.0.1/jna-3.5.2.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/vlcj-3.0.1-dist/vlcj-3.0.1/platform-3.5.2.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/vlcj-3.0.1-dist/vlcj-3.0.1/vlcj-3.0.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/vlcj-3.0.1-dist/vlcj-3.0.1/vlcj-3.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/vlcj-3.0.1-dist/vlcj-3.0.1/vlcj-3.0.1-tests.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/vlcj-3.0.1-dist/vlcj-3.0.1/vlcj-3.0.1-test-sources.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/jdatechooser/DateChooser.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/jcalendar-1.1.4.jar/jcalendar-1.1.4.jar"/>
+	<classpathentry kind="lib" path="E:/rac/mysql-connector-java-8.0.22.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/library/DJNativeSwing.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/library/DJNativeSwing-SWT.jar"/>
+	<classpathentry kind="lib" path="E:/rac/MovieTicketBooking/library/DJNativeSwing-SWTDemo.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
