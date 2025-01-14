@@ -64,7 +64,7 @@ public class BookSeat extends javax.swing.JFrame {
 
 
     private void bookingButton() {
-        JButton btnBooking = new JButton("Book");
+        JButton btnBooking = new JButton("Đặt vé");
         btnBooking.setBounds(450, 600, 100, 30); // Vị trí cố định
         btnBooking.addActionListener(new ActionListener() {
             @Override
@@ -199,10 +199,10 @@ public class BookSeat extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Movie Ticket Booking");
+        setTitle("Đặt vé xem phim");
         setPreferredSize(new java.awt.Dimension(1000, 700));
 
-        jButton1.setText("Back");
+        jButton1.setText("Trở lại");
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -210,7 +210,7 @@ public class BookSeat extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Room:");
+        jLabel2.setText("Phòng");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

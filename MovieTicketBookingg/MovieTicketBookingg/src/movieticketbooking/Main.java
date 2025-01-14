@@ -26,9 +26,6 @@ public class Main extends JFrame {
     private JLabel jLabel4;
     private JLabel jLabel5;
 
-    /**
-     * Launch the application.
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -41,10 +38,7 @@ public class Main extends JFrame {
             }
         });
     }
-
-    /**
-     * Create the frame.
-     */
+    
     public Main() throws UnknownHostException {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
@@ -53,14 +47,14 @@ public class Main extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 // Vẽ hình nền cho contentPane
-                ImageIcon backgroundImage = new ImageIcon("E:/HinhMovie/background.jpg");
+                ImageIcon backgroundImage = new ImageIcon("D:/nen.jpg");
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-
+ 
         initComponents();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -69,7 +63,7 @@ public class Main extends JFrame {
     }
 
     private void initComponents() {
-        jLabel1 = new JLabel("Admin");
+        jLabel1 = new JLabel("Quản trị viên");
         jLabel1.setBounds(50, 200, 100, 30);
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,7 +72,7 @@ public class Main extends JFrame {
         });
         contentPane.add(jLabel1);
 
-        jLabel2 = new JLabel("Customer");
+        jLabel2 = new JLabel("Khách hàng");
         jLabel2.setBounds(300, 200, 100, 30);
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,21 +96,21 @@ public class Main extends JFrame {
 
     private void loadIcons() {
         // Đọc hình ảnh từ thư mục trên máy tính
-        ImageIcon MyImage = new ImageIcon("E:/HinhMovie/manager.jpg");
+        ImageIcon MyImage = new ImageIcon("D:/quantrivien.jpg");
         Image img = MyImage.getImage();
         // Thay đổi kích thước hình ảnh
         Image resizedImg = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(resizedImg);
         jLabel1.setIcon(image);
 
-        MyImage = new ImageIcon("E:/HinhMovie/user.jpg");
+        MyImage = new ImageIcon("D:/khachhang.png");
         img = MyImage.getImage();
         resizedImg = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         image = new ImageIcon(resizedImg);
         jLabel2.setIcon(image);
 
         // Cập nhật hình ảnh cho jLabel5 (có thể là logo)
-        MyImage = new ImageIcon("E:/HinhMovie/cgv.jpg");
+        MyImage = new ImageIcon("D:/logottp.jpg");
         img = MyImage.getImage();
         resizedImg = img.getScaledInstance(250, 150, Image.SCALE_SMOOTH);
         image = new ImageIcon(resizedImg);

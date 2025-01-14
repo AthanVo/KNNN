@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package movieticketbooking.admin;
 
 import movieticketbooking.user.Home;
@@ -20,22 +16,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author ngoc
- */
+
 public class EditMovie extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EditMovie
-     */
+  
     String imagePath="";
     String videoPath="";
     int SelectedMovie=0;
     Vector<KeyValue> id_movies=new Vector<>();
     public void InitCustom(){
         
-        // get all movie form database
+        
         try{
 	Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/movieticketbooking","root","");
         PreparedStatement st=conn.prepareStatement("Select * from movie ;");
@@ -56,14 +47,14 @@ public class EditMovie extends javax.swing.JFrame {
 	{
 		System.out.println("Connect ");
 	}
-         // add movie name to combobox
+         
          for(KeyValue kv:id_movies)
          {
              jComboBox1.addItem(kv);
          }
     }
     public void renderInterface(int id_movie){
-        //get information related to this movie
+        
          try{
 	Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/movieticketbooking","root","");
          PreparedStatement st=conn.prepareStatement("Select * from movie where id like ?;");
@@ -118,7 +109,7 @@ public class EditMovie extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Movie name");
+        jLabel1.setText("Tên phim");
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,14 +117,14 @@ public class EditMovie extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Director");
+        jLabel2.setText("Đạo diễn");
 
         jLabel3.setBackground(new java.awt.Color(204, 153, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 51, 255));
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel4.setText("Description");
+        jLabel4.setText("Giới thiệu");
 
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
@@ -141,7 +132,7 @@ public class EditMovie extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        UploadImageBtn.setText("Upload Image");
+        UploadImageBtn.setText("Cập nhật ảnh");
         UploadImageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UploadImageBtnActionPerformed(evt);
@@ -149,23 +140,23 @@ public class EditMovie extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("Edit movie");
+        jLabel6.setText("Sửa phim");
 
-        jButton2.setText("Back");
+        jButton2.setText("Trở lại");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        UploadDataBtn.setText("Update data");
+        UploadDataBtn.setText("Cập nhật dữ liệu");
         UploadDataBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UploadDataBtnActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Edit Trailer");
+        jButton1.setText("Sửa đoạn trailer phim");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -256,14 +247,14 @@ public class EditMovie extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         if(jComboBox1.getItemCount()!=0){
         renderInterface(((KeyValue)jComboBox1.getSelectedItem()).getKey());
         }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        
+    }
    
     public void uploadImage()
     {
@@ -290,10 +281,10 @@ public class EditMovie extends javax.swing.JFrame {
         ImageIcon image= new ImageIcon(newImg);
         return image;
     }
-    private void UploadImageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadImageBtnActionPerformed
+    private void UploadImageBtnActionPerformed(java.awt.event.ActionEvent evt) {
         uploadImage();
-    }//GEN-LAST:event_UploadImageBtnActionPerformed
-    private void UploadDataBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadDataBtnActionPerformed
+    }
+    private void UploadDataBtnActionPerformed(java.awt.event.ActionEvent evt) {
           try{
              System.out.println(imagePath+","+videoPath);
            
@@ -306,7 +297,7 @@ public class EditMovie extends javax.swing.JFrame {
          st.setString(5, videoPath);
          st.setInt(6,((KeyValue)jComboBox1.getSelectedItem()).getKey());
          st.executeUpdate();
-           JOptionPane.showMessageDialog(this, "Update movie success!");
+           JOptionPane.showMessageDialog(this, "Cập nhật phim thành công!");
           jComboBox1.removeAllItems();
           id_movies.removeAllElements();
           InitCustom();
@@ -314,21 +305,21 @@ public class EditMovie extends javax.swing.JFrame {
 	{
 		System.out.println("Connect fail");
                 ImageIcon iconic=new ImageIcon("error.png");
-                 JOptionPane.showMessageDialog(this, "Update movie fail!"," error!",JOptionPane.INFORMATION_MESSAGE,iconic);
+                 JOptionPane.showMessageDialog(this, "Cập nhật phim thất bại!"," error!",JOptionPane.INFORMATION_MESSAGE,iconic);
 	}
                 
       
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UploadDataBtnActionPerformed
+        
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
         manage hm=new manage();
         hm.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
           JFileChooser file=new JFileChooser();
     file.setCurrentDirectory(new File(System.getProperty("user.dir")));
     FileNameExtensionFilter filter=new FileNameExtensionFilter("*.Images","jpg","mp4","png");
@@ -340,7 +331,7 @@ public class EditMovie extends javax.swing.JFrame {
         videoPath=path;
     }
     else if(result==JFileChooser.CANCEL_OPTION){
-	System.out.println("video error");
+	System.out.println("Phim lỗi");
     }
     }
 

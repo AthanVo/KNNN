@@ -53,12 +53,12 @@ public class Login extends JFrame {
 
     private void initComponents() {
 
-        jLabel1 = new JLabel("Id");
-        jLabel2 = new JLabel("Pass");
+        jLabel1 = new JLabel("Tài khoản");
+        jLabel2 = new JLabel("Mật khẩu");
         jTextField1 = new JTextField();
-        jButton1 = new JButton("Login");
-        jButton2 = new JButton("Back");
-        jLabel3 = new JLabel("Admin login");
+        jButton1 = new JButton("Đăng nhập");
+        jButton2 = new JButton("Trở lại");
+        jLabel3 = new JLabel("Trang chủ đăng nhập");
         jPasswordField1 = new JPasswordField();
 
         jButton1.addActionListener(evt -> login());

@@ -23,12 +23,7 @@ import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.player.MediaPlayerFactory;
-import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
-import uk.co.caprica.vlcj.player.embedded.windows.Win32FullScreenStrategy;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import uk.co.caprica.vlcj.runtime.x.LibXUtil;
+
 import movieticketbooking.user.DayHour;
 public class Booking extends javax.swing.JFrame {
     private int userId;
@@ -139,7 +134,7 @@ public class Booking extends javax.swing.JFrame {
 	            director = r0.getString("director");
 	            trailer = r0.getString("trailer");
 	        } else {
-	            throw new Exception("Movie not found for ID: " + movieId);
+	            throw new Exception("Không tìm thấy phim" + movieId);
 	        }
 
 	        // Cập nhật giao diện
@@ -194,7 +189,7 @@ public class Booking extends javax.swing.JFrame {
 	            DayCombobox.addItem(day);
 	        }
 	    } catch (Exception ex) {
-	        System.out.println("Error in renderBookingInterface: " + ex.getMessage());
+	        System.out.println("Lỗi trong renderBookingInterface: " + ex.getMessage());
 	        ex.printStackTrace();
 	    }
 	}
@@ -220,7 +215,7 @@ public class Booking extends javax.swing.JFrame {
 
 	        // Kiểm tra nếu không có phim nào
 	        if (movieList.isEmpty()) {
-	            JOptionPane.showMessageDialog(this, "No movies found in the database.", "Error", JOptionPane.ERROR_MESSAGE);
+	            JOptionPane.showMessageDialog(this, "Không tìm thấy phim nào trong cơ sở dữ liệu.", "Error", JOptionPane.ERROR_MESSAGE);
 	            return;
 	        }
 
@@ -228,7 +223,7 @@ public class Booking extends javax.swing.JFrame {
 	        renderBookingInterface(movieList.elementAt(currentIndex));
 
 	    } catch (SQLException ex) {
-	        System.out.println("Failed to retrieve movie list.");
+	        System.out.println("Không thể lấy danh sách phim.");
 	        ex.printStackTrace();
 	    }
 	}
@@ -253,7 +248,7 @@ public class Booking extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Movie ticket system");
+        setTitle("Đặt vé xem phim");
         LeftButton.setText("<");  // Hiển thị mũi tên trái
         LeftButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);  // Canh giữa nội dung
         LeftButton.setPreferredSize(new java.awt.Dimension(50, 50));  // Kích thước cố định
@@ -277,7 +272,7 @@ public class Booking extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("Select day");
+        jLabel8.setText("Chọn ngày");
 
         DayCombobox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -290,16 +285,16 @@ public class Booking extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Select hour");
+        jLabel9.setText("Chọn giờ");
 
-        BookTicketBtn.setText("Book ticket");
+        BookTicketBtn.setText("Đặt vé");
         BookTicketBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BookTicketBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Back");
+        jButton2.setText("Trở lại");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -331,12 +326,7 @@ public class Booking extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("Trailer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -569,10 +559,6 @@ public class Booking extends javax.swing.JFrame {
 
         }
        
-                
-        
-        
-        
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -581,13 +567,7 @@ public class Booking extends javax.swing.JFrame {
         hm.setVisible(true);
         
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-       
-        System.out.println("moviename:"+movieName);
-        video pv=new video(trailer,movieName);
-       
-     
-    }
+    
     public static void main(String args[]) {
  
         try {

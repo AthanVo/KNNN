@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package movieticketbooking.admin;
 import movieticketbooking.user.Home;
 import movieticketbooking.user.KeyValue;
@@ -21,20 +17,18 @@ import javax.swing.JOptionPane;
 
 public class SetSchedule extends javax.swing.JFrame {
     Connection conn;
-    /**
-     * Creates new form SetSchedule
-     */
+   
     Vector<String> list = new Vector<>();
     Vector<Integer> id_hours=new Vector<>();
     public SetSchedule() {
         initComponents();
-        //frame location fixed center window
+        
         this.pack();
         this.setLocationRelativeTo(null);
         this.setEnabled(true);
-       //unable hour buttons
+       
         ChangeButtonStatus(false);
-        // push all data of movie and room from database to combobox
+       
 	try{
 	conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/movieticketbooking","root","");
 	Statement st=conn.createStatement();
@@ -50,7 +44,7 @@ public class SetSchedule extends javax.swing.JFrame {
         }
 	}catch(Exception ex)
 	{
-		System.out.println("Connect fail");
+		System.out.println("Kết nối thất bại");
 	}
     }
     
@@ -83,12 +77,12 @@ public class SetSchedule extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Movie ticket sytstem");
+        setTitle("Hệ thống đặt vé xem phim");
 
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 320));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Select Movie");
+        jLabel1.setText("Chọn phim");
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +91,7 @@ public class SetSchedule extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Select Room");
+        jLabel2.setText("Chọn phòng");
 
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,10 +100,10 @@ public class SetSchedule extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Set day");
+        jLabel3.setText("Thiết lập ngày");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Set time");
+        jLabel4.setText("Thiết lập thời gian");
 
         jButton3.setText("11:25");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -300,7 +294,7 @@ public class SetSchedule extends javax.swing.JFrame {
                     .addComponent(jButton11)))
         );
 
-        SetButton.setText("Set");
+        SetButton.setText("Thiết lập");
         SetButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SetButtonMouseClicked(evt);
@@ -356,7 +350,7 @@ public class SetSchedule extends javax.swing.JFrame {
     });
 
     RefreshButton.setBackground(new java.awt.Color(255, 204, 204));
-    RefreshButton.setText("Refresh");
+    RefreshButton.setText("Tải lại");
     RefreshButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             RefreshButtonActionPerformed(evt);
@@ -420,9 +414,9 @@ public class SetSchedule extends javax.swing.JFrame {
     );
 
     jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    jLabel5.setText("Set shcedule");
+    jLabel5.setText("Thiết lập lịch chiếu");
 
-    jButton13.setText("Back");
+    jButton13.setText("Trở lại");
     jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             jButton13MouseClicked(evt);
